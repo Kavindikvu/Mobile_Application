@@ -1,0 +1,469 @@
+---
+alwaysApply: true
+---
+# Skillora Family Mobile - Cursor AI Rules
+
+## Project Overview
+This is a Flutter mobile application for parents and students in the Skillora ecosystem. The app follows Clean Architecture principles with feature-based organization, using Riverpod for state management and GoRouter for navigation.
+
+## Critical Rules
+
+### Documentation Files
+- **NEVER create markdown (.md) files unless explicitly requested by the user**
+- Do not generate README, documentation, or any .md files unless the user specifically asks for them
+- Focus on code implementation, not documentation
+
+### Architecture & Code Organization
+
+#### Clean Architecture Layers
+- **Presentation Layer**: UI screens, widgets, Riverpod consumers (`lib/features/*/presentation/`)
+- **Domain Layer**: Business models, entities, use cases (`lib/core/domain/`, `lib/features/*/domain/`)
+- **Data Layer**: Repositories, data sources, API services (`lib/core/data/`, `lib/features/*/data/`)
+
+#### Feature Structure
+When creating a new feature, follow this structure:
+```
+feature_name/
+├── data/
+│   ├── feature_repository.dart    # Repository interface/implementation
+│   └── feature_model.dart          # Data models (if feature-specific)
+├── domain/
+│   └── feature_model.dart          # Domain models (immutable, with copyWith)
+├── presentation/
+│   ├── feature_screen.dart         # Main screen widget
+│   └── feature_widgets.dart        # Feature-specific widgets (if needed)
+└── providers/
+    └── feature_providers.dart       # Riverpod providers (if needed)
+```
+
+#### Core Directory Usage
+- Shared code goes in `lib/core/`
+- Domain models in `lib/core/domain/`
+- Reusable widgets in `lib/core/widgets/` or `lib/core/ui/components/`
+- Theme/tokens in `lib/core/theme/`
+- Services in `lib/core/data/services/`
+- Providers in `lib/core/providers/`
+
+## State Management with Riverpod
+
+### Provider Patterns
+- Use `StateNotifierProvider` for complex state with business logic
+- Use `Provider` for simple state and dependency injection
+- Use `FutureProvider` or `StreamProvider` for async data
+- Always use `ConsumerWidget` or `ConsumerStatefulWidget` in presentation layer
+- Derive providers from other providers when possible (e.g., `currentUserProvider` from `authProvider`)
+
+### State Notifier Pattern
+```dart
+// State class (immutable)
+class FeatureState {
+  final List<Item> items;
+  final bool isLoading;
+  final String? error;
+  
+  const FeatureState({
+    this.items = const [],
+    this.isLoading = false,
+    this.error,
+  });
+  
+  FeatureState copyWith({...}) { ... }
+}
+
+// StateNotifier
+class FeatureNotifier extends StateNotifier<FeatureState> {
+  FeatureNotifier(this._ref) : super(const FeatureState());
+  final Ref _ref;
+  
+  Future<void> loadItems() async {
+    state = state.copyWith(isLoading: true, error: null);
+    try {
+      // ... logic
+    } catch (e) {
+      state = state.copyWith(isLoading: false, error: e.toString());
+    }
+  }
+}
+
+// Provider
+final featureProvider = StateNotifierProvider<FeatureNotifier, FeatureState>((ref) {
+  return FeatureNotifier(ref);
+});
+```
+
+### AsyncValue Pattern
+When using FutureProvider, handle AsyncValue properly:
+```dart
+final dataProvider = FutureProvider<List<Item>>((ref) async {
+  final repository = ref.watch(repositoryProvider);
+  return repository.getItems();
+});
+
+// In UI
+dataProvider.when(
+  data: (items) => ItemList(items: items),
+  loading: () => CircularProgressIndicator(),
+  error: (error, stack) => ErrorWidget(error: error),
+)
+```
+
+## Navigation with GoRouter
+
+### Route Definition
+- Use `GoRoute` for simple routes
+- Use `StatefulShellRoute.indexedStack` for bottom navigation tabs
+- Always provide route names for type-safe navigation
+- Use path parameters for dynamic routes: `path: '/item/:id'`
+
+### Navigation Methods
+- Use `context.go('/path')` for navigation (replaces current route)
+- Use `context.push('/path')` for stack navigation
+- Use `context.goNamed('route_name', pathParameters: {...})` for type-safe navigation
+- Pass data via `state.extra` when needed
+
+### Route Guards
+- Implement authentication checks in router's `redirect` callback
+- Check `ref.read(isAuthenticatedProvider)` for auth state
+
+## Domain Models
+
+### Model Requirements
+- All domain models must be immutable (use `final` fields)
+- Always implement `copyWith` method for state updates
+- Include `fromJson` and `toJson` factory methods
+- Use enums for status/type fields (e.g., `UserRole`, `ClassStatus`)
+- Provide computed getters for derived values
+
+### Example Model Pattern
+```dart
+class ItemModel {
+  final String id;
+  final String title;
+  final ItemStatus status;
+  final DateTime createdAt;
+  
+  const ItemModel({
+    required this.id,
+    required this.title,
+    required this.status,
+    required this.createdAt,
+  });
+  
+  ItemModel copyWith({
+    String? id,
+    String? title,
+    ItemStatus? status,
+    DateTime? createdAt,
+  }) {
+    return ItemModel(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      status: status ?? this.status,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+  
+  factory ItemModel.fromJson(Map<String, dynamic> json) { ... }
+  Map<String, dynamic> toJson() { ... }
+  
+  // Computed getters
+  bool get isActive => status == ItemStatus.active;
+  String get displayName => title;
+}
+```
+
+## Logging
+
+### AppLogger Usage
+- **ALWAYS** use `AppLogger` instead of `print()` statements
+- Use appropriate log levels:
+  - `AppLogger.verbose()` - Very detailed debugging (debug only)
+  - `AppLogger.debug()` - Development debugging (debug only)
+  - `AppLogger.info()` - General application flow
+  - `AppLogger.warning()` - Potentially problematic situations
+  - `AppLogger.error()` - Runtime errors, API failures
+  - `AppLogger.fatal()` - Critical errors causing crashes
+
+### Logging Patterns
+```dart
+// With context
+AppLogger.info('User logged in', context: {
+  'userId': user.id,
+  'email': AppLogger.sanitize(user.email),
+});
+
+// With error
+AppLogger.error('Failed to load data', error: e, stackTrace: stackTrace);
+
+// API logging (use AppLogger.logApiRequest/Response in ApiClient)
+```
+
+### PII Sanitization
+- Always sanitize sensitive data: `AppLogger.sanitize(email)`
+- Never log passwords, tokens, or full API keys
+- Use `AppLogger.sanitize()` for emails, phone numbers, tokens
+
+## Error Handling
+
+### Exception Handling
+- Use custom `ApiException` for API errors
+- Always catch exceptions and provide user-friendly error messages
+- Log errors with full context: `AppLogger.error(..., error: e, stackTrace: stackTrace)`
+- Use `AppToast.showApiError()` for user-facing error messages
+
+### Error Handling Pattern
+```dart
+try {
+  final result = await repository.getData();
+  // Handle success
+} on ApiException catch (e, stackTrace) {
+  AppLogger.logApiError(
+    url: url,
+    error: e.message,
+    statusCode: e.statusCode,
+    stackTrace: stackTrace,
+  );
+  AppToast.showApiError(statusCode: e.statusCode, message: e.message);
+  // Handle error state
+} catch (e, stackTrace) {
+  AppLogger.error('Unexpected error', error: e, stackTrace: stackTrace);
+  // Handle unexpected error
+}
+```
+
+## API Integration
+
+### ApiClient Usage
+- Always use `ApiClient` from `lib/core/data/api_client.dart`
+- Use service classes (e.g., `UserService`, `ClassService`) that wrap `ApiClient`
+- Services should be provided via Riverpod providers
+- Always handle API errors gracefully
+
+### Service Pattern
+```dart
+class FeatureService {
+  final ApiClient _client;
+  final String _baseUrl;
+  
+  FeatureService(this._client, this._baseUrl);
+  
+  Future<List<Item>> getItems() async {
+    try {
+      final response = await _client.getList('/items');
+      return response.map((json) => ItemModel.fromJson(json)).toList();
+    } catch (e, stackTrace) {
+      AppLogger.logApiError(url: '$_baseUrl/items', error: e, stackTrace: stackTrace);
+      rethrow;
+    }
+  }
+}
+
+final featureServiceProvider = Provider<FeatureService>((ref) {
+  final apiClient = ref.watch(apiClientProvider(ApiConfig.featureServiceBaseUrl));
+  return FeatureService(apiClient, ApiConfig.featureServiceBaseUrl);
+});
+```
+
+### Repository Pattern
+- Repositories abstract data sources (can be API or mock data)
+- Repositories are provided via Riverpod
+- Currently supports `AssetDataProvider` (mock) and API services
+
+## UI & Theming
+
+### Design System Usage
+- **ALWAYS** use design tokens from `lib/core/theme/tokens.dart`:
+  - Colors: `AppColors.*` (e.g., `AppColors.primary`, `AppColors.brandTeal`)
+  - Spacing: `AppSpacing.*` (e.g., `AppSpacing.md`, `AppSpacing.xl`)
+  - Border Radius: `AppRadii.*` (e.g., `AppRadii.md`, `AppRadii.sm`)
+  - Typography: Use `AppTypography` from theme
+
+### Theme Access
+- Use `Theme.of(context)` to access theme data
+- Use `Theme.of(context).colorScheme.*` for Material 3 colors
+- Use `Theme.of(context).textTheme.*` for typography
+
+### Reusable Components
+- Use existing components from `lib/core/ui/components/`:
+  - `AppButton` - For buttons
+  - `AppCard` - For cards
+  - `AppListTile` - For list items
+  - `AppSectionHeader` - For section headers
+  - `InfoBanner` - For info messages
+
+### Widget Patterns
+- Use `ConsumerWidget` or `ConsumerStatefulWidget` for widgets that need Riverpod
+- Extract complex widgets into private classes (e.g., `_FeatureSection`)
+- Use `const` constructors where possible for performance
+- Implement proper loading, error, and empty states
+
+### UI State Handling
+```dart
+// Always handle AsyncValue states
+dataProvider.when(
+  data: (data) => DataWidget(data: data),
+  loading: () => const CircularProgressIndicator(),
+  error: (error, stack) => ErrorWidget(error: error),
+)
+
+// Or with ConsumerWidget
+final data = ref.watch(dataProvider);
+if (data.isLoading) return CircularProgressIndicator();
+if (data.hasError) return ErrorWidget(error: data.error);
+return DataWidget(data: data.value!);
+```
+
+## Type Safety
+
+### Null Safety
+- Always use null-safe operators (`?`, `!`, `??`)
+- Provide default values where appropriate
+- Use `const` for immutable collections
+- Use `final` for variables that don't change
+
+### Type Definitions
+- Use enums for status/type fields
+- Use sealed classes or union types when appropriate
+- Avoid `dynamic` - use proper types or `Object?`
+
+## Code Quality
+
+### Naming Conventions
+- Files: `snake_case.dart` (e.g., `user_profile.dart`, `home_screen.dart`)
+- Classes: `PascalCase` (e.g., `UserProfile`, `HomeScreen`)
+- Variables/Functions: `camelCase` (e.g., `userName`, `getUserData`)
+- Constants: `camelCase` with `const` (e.g., `const defaultTimeout`)
+- Private members: `_leadingUnderscore` (e.g., `_privateMethod`, `_privateField`)
+
+### Code Organization
+- One class per file (except for related private classes)
+- Group imports: Flutter packages, then project imports
+- Use meaningful variable and function names
+- Keep functions small and focused
+- Extract complex logic into separate methods
+
+### Documentation
+- Add doc comments for public APIs
+- Use `///` for documentation comments
+- Document complex business logic
+- Add TODO comments for future improvements
+
+## Role-Based Features
+
+### Role Checking
+- Always check user role: `ref.watch(isParentProvider)`, `ref.watch(isStudentProvider)`
+- Use `ref.watch(authProvider)` to access current user and selected child
+- Show/hide features based on role
+- Use `RoleBasedNavigation.getDestinations()` for navigation
+
+### Multi-Child Support
+- Parents can switch between children using `ref.read(authProvider.notifier).switchToChild(child)`
+- Check `ref.watch(hasSelectedChildProvider)` to see if viewing child context
+- Use `ref.watch(selectedChildProvider)` to get current child
+- Show `ChildContextBar` when parent is viewing child profile
+
+## Environment Configuration
+
+### Environment Usage
+- Use `ApiConfig.baseUrl` for API endpoints
+- Use `ApiConfig.environmentName` for logging
+- Check `ApiConfig.isDevelopment` for debug-only code
+- Never hardcode API URLs - use `ApiConfig` constants
+
+## Testing Considerations
+
+### Test Structure
+- Place tests in `test/` directory
+- Mirror feature structure: `test/features/feature_name/`
+- Use descriptive test names
+- Test widgets, providers, and business logic separately
+
+## Common Patterns to Follow
+
+### Provider Dependency
+```dart
+// Good: Provider depends on another provider
+final featureProvider = Provider<Feature>((ref) {
+  final repository = ref.watch(repositoryProvider);
+  return Feature(repository);
+});
+
+// Bad: Direct instantiation
+final featureProvider = Provider<Feature>((ref) {
+  return Feature(Repository()); // Don't do this
+});
+```
+
+### State Updates
+```dart
+// Good: Use copyWith for immutable updates
+state = state.copyWith(isLoading: true, error: null);
+
+// Bad: Mutating state directly
+state.isLoading = true; // Don't do this
+```
+
+### Widget Building
+```dart
+// Good: Extract complex widgets
+class _ComplexSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) { ... }
+}
+
+// Good: Use const where possible
+const SizedBox(height: AppSpacing.md)
+
+// Good: Handle all states
+data.when(
+  data: (value) => ...,
+  loading: () => ...,
+  error: (error, stack) => ...,
+)
+```
+
+## What NOT to Do
+
+### Anti-Patterns to Avoid
+- ❌ Don't use `print()` - use `AppLogger`
+- ❌ Don't create markdown files unless explicitly requested
+- ❌ Don't hardcode colors/spacing - use design tokens
+- ❌ Don't mutate state directly - use `copyWith`
+- ❌ Don't create global variables - use Riverpod providers
+- ❌ Don't use `setState` in ConsumerWidget - use Riverpod
+- ❌ Don't hardcode API URLs - use `ApiConfig`
+- ❌ Don't ignore errors - always handle and log them
+- ❌ Don't create features outside the feature structure
+- ❌ Don't mix presentation and business logic
+
+## Feature Creation Checklist
+
+When creating a new feature:
+1. ✅ Create feature directory in `lib/features/feature_name/`
+2. ✅ Create domain model in `domain/` (if needed)
+3. ✅ Create repository in `data/` (if needed)
+4. ✅ Create service in `lib/core/data/services/` (if API integration)
+5. ✅ Create providers in `providers/` or `lib/core/providers/`
+6. ✅ Create screen in `presentation/`
+7. ✅ Add route to `lib/core/router/app_router.dart`
+8. ✅ Use design tokens for styling
+9. ✅ Implement loading/error/empty states
+10. ✅ Add proper logging
+11. ✅ Handle errors gracefully
+12. ✅ Use Riverpod for state management
+13. ✅ Follow role-based access patterns (if applicable)
+
+## Summary
+
+- **Architecture**: Clean Architecture with Presentation/Domain/Data layers
+- **State**: Riverpod with StateNotifier for complex state
+- **Navigation**: GoRouter with type-safe routes
+- **Models**: Immutable with copyWith, fromJson, toJson
+- **Logging**: AppLogger (never print)
+- **Errors**: Custom exceptions with user-friendly messages
+- **UI**: Design tokens, Material 3, reusable components
+- **API**: ApiClient + Services pattern
+- **Organization**: Feature-based structure
+- **Quality**: Type-safe, null-safe, well-documented
+- **Files**: NO markdown files unless explicitly requested
+

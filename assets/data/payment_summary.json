@@ -1,0 +1,11 @@
+{
+  "totalAmount": 695.00,
+  "paidAmount": 245.00,
+  "pendingAmount": 225.00,
+  "overdueAmount": 50.00,
+  "totalPayments": 8,
+  "completedPayments": 4,
+  "pendingPayments": 1,
+  "overduePayments": 1,
+  "currency": "USD"
+}

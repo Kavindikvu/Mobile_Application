@@ -1,0 +1,171 @@
+[
+  {
+    "id": "pay_1",
+    "userId": "user_123",
+    "childId": "child_1",
+    "amount": 150.00,
+    "currency": "USD",
+    "type": "tuition",
+    "status": "completed",
+    "method": "creditCard",
+    "description": "Monthly Tuition - December 2024",
+    "dueDate": "2024-12-01T00:00:00Z",
+    "paidDate": "2024-11-28T14:30:00Z",
+    "transactionId": "txn_123456789",
+    "receiptUrl": "https://example.com/receipts/pay_1.pdf",
+    "metadata": {
+      "billingPeriod": "2024-12",
+      "childName": "Emma Doe"
+    },
+    "createdAt": "2024-11-01T00:00:00Z",
+    "updatedAt": "2024-11-28T14:30:00Z"
+  },
+  {
+    "id": "pay_2",
+    "userId": "user_123",
+    "childId": "child_1",
+    "amount": 25.00,
+    "currency": "USD",
+    "type": "materials",
+    "status": "completed",
+    "method": "creditCard",
+    "description": "Science Lab Materials",
+    "dueDate": "2024-12-05T00:00:00Z",
+    "paidDate": "2024-12-03T10:15:00Z",
+    "transactionId": "txn_123456790",
+    "receiptUrl": "https://example.com/receipts/pay_2.pdf",
+    "metadata": {
+      "classId": "science_lab_101",
+      "childName": "Emma Doe"
+    },
+    "createdAt": "2024-11-15T00:00:00Z",
+    "updatedAt": "2024-12-03T10:15:00Z"
+  },
+  {
+    "id": "pay_3",
+    "userId": "user_123",
+    "childId": "child_2",
+    "amount": 150.00,
+    "currency": "USD",
+    "type": "tuition",
+    "status": "pending",
+    "method": "creditCard",
+    "description": "Monthly Tuition - January 2025",
+    "dueDate": "2025-01-01T00:00:00Z",
+    "paidDate": null,
+    "transactionId": null,
+    "receiptUrl": null,
+    "metadata": {
+      "billingPeriod": "2025-01",
+      "childName": "Liam Doe"
+    },
+    "createdAt": "2024-12-01T00:00:00Z",
+    "updatedAt": "2024-12-01T00:00:00Z"
+  },
+  {
+    "id": "pay_4",
+    "userId": "user_123",
+    "childId": "child_1",
+    "amount": 50.00,
+    "currency": "USD",
+    "type": "activities",
+    "status": "overdue",
+    "method": "creditCard",
+    "description": "Field Trip - Museum Visit",
+    "dueDate": "2024-12-08T00:00:00Z",
+    "paidDate": null,
+    "transactionId": null,
+    "receiptUrl": null,
+    "metadata": {
+      "activityId": "field_trip_1",
+      "childName": "Emma Doe"
+    },
+    "createdAt": "2024-11-20T00:00:00Z",
+    "updatedAt": "2024-11-20T00:00:00Z"
+  },
+  {
+    "id": "pay_5",
+    "userId": "user_123",
+    "childId": "child_2",
+    "amount": 75.00,
+    "currency": "USD",
+    "type": "fees",
+    "status": "processing",
+    "method": "bankTransfer",
+    "description": "Registration Fee - Spring Semester",
+    "dueDate": "2024-12-15T00:00:00Z",
+    "paidDate": null,
+    "transactionId": "txn_processing_123",
+    "receiptUrl": null,
+    "metadata": {
+      "semester": "Spring 2025",
+      "childName": "Liam Doe"
+    },
+    "createdAt": "2024-12-10T09:00:00Z",
+    "updatedAt": "2024-12-10T09:00:00Z"
+  },
+  {
+    "id": "pay_6",
+    "userId": "user_123",
+    "childId": "child_1",
+    "amount": 30.00,
+    "currency": "USD",
+    "type": "materials",
+    "status": "completed",
+    "method": "digitalWallet",
+    "description": "Art Supplies",
+    "dueDate": "2024-11-30T00:00:00Z",
+    "paidDate": "2024-11-29T16:45:00Z",
+    "transactionId": "txn_digital_123",
+    "receiptUrl": "https://example.com/receipts/pay_6.pdf",
+    "metadata": {
+      "classId": "art_101",
+      "childName": "Emma Doe"
+    },
+    "createdAt": "2024-11-25T00:00:00Z",
+    "updatedAt": "2024-11-29T16:45:00Z"
+  },
+  {
+    "id": "pay_7",
+    "userId": "user_123",
+    "childId": "child_2",
+    "amount": 200.00,
+    "currency": "USD",
+    "type": "tuition",
+    "status": "failed",
+    "method": "creditCard",
+    "description": "Monthly Tuition - November 2024",
+    "dueDate": "2024-11-01T00:00:00Z",
+    "paidDate": null,
+    "transactionId": "txn_failed_123",
+    "receiptUrl": null,
+    "metadata": {
+      "billingPeriod": "2024-11",
+      "childName": "Liam Doe",
+      "failureReason": "Insufficient funds"
+    },
+    "createdAt": "2024-10-01T00:00:00Z",
+    "updatedAt": "2024-11-02T00:00:00Z"
+  },
+  {
+    "id": "pay_8",
+    "userId": "user_123",
+    "childId": "child_1",
+    "amount": 15.00,
+    "currency": "USD",
+    "type": "other",
+    "status": "completed",
+    "method": "cash",
+    "description": "Library Fine",
+    "dueDate": "2024-12-01T00:00:00Z",
+    "paidDate": "2024-11-30T12:00:00Z",
+    "transactionId": "cash_123",
+    "receiptUrl": "https://example.com/receipts/pay_8.pdf",
+    "metadata": {
+      "childName": "Emma Doe",
+      "bookTitle": "Advanced Mathematics"
+    },
+    "createdAt": "2024-11-25T00:00:00Z",
+    "updatedAt": "2024-11-30T12:00:00Z"
+  }
+]

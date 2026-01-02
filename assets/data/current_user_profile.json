@@ -1,0 +1,30 @@
+{
+  "id": "user_123",
+  "email": "john.doe@example.com",
+  "firstName": "John",
+  "lastName": "Doe",
+  "phoneNumber": "+1-555-0123",
+  "profileImageUrl": "https://example.com/profile.jpg",
+  "role": "parent",
+  "status": "active",
+  "createdAt": "2024-01-15T00:00:00Z",
+  "updatedAt": "2024-12-10T00:00:00Z",
+  "preferences": {
+    "notifications": {
+      "email": true,
+      "push": true,
+      "sms": false
+    },
+    "theme": "system",
+    "language": "en"
+  },
+  "childrenIds": ["child_1", "child_2"],
+  "parentId": null,
+  "academicInfo": null,
+  "parentInfo": {
+    "emergencyContact": "+1-555-0124",
+    "address": "123 Main St, City, State 12345",
+    "occupation": "Software Engineer",
+    "company": "Tech Corp"
+  }
+}

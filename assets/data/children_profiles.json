@@ -1,0 +1,48 @@
+[
+  {
+    "id": "child_1",
+    "firstName": "Emma",
+    "lastName": "Doe",
+    "profileImageUrl": "https://example.com/emma.jpg",
+    "dateOfBirth": "2010-05-15T00:00:00Z",
+    "grade": "8th Grade",
+    "school": "Lincoln Middle School",
+    "academicInfo": {
+      "gpa": 3.8,
+      "favoriteSubjects": ["Mathematics", "Science", "Art"],
+      "strengths": ["Problem Solving", "Creative Writing"],
+      "areasForImprovement": ["History", "Physical Education"]
+    },
+    "enrolledClassIds": ["class_1", "class_2", "class_3"],
+    "preferences": {
+      "learningStyle": "visual",
+      "difficultyLevel": "advanced",
+      "interests": ["robotics", "painting", "music"]
+    },
+    "createdAt": "2024-01-15T00:00:00Z",
+    "updatedAt": "2024-12-10T00:00:00Z"
+  },
+  {
+    "id": "child_2",
+    "firstName": "Liam",
+    "lastName": "Doe",
+    "profileImageUrl": "https://example.com/liam.jpg",
+    "dateOfBirth": "2012-08-22T00:00:00Z",
+    "grade": "6th Grade",
+    "school": "Lincoln Middle School",
+    "academicInfo": {
+      "gpa": 3.5,
+      "favoriteSubjects": ["English", "Social Studies", "Physical Education"],
+      "strengths": ["Reading Comprehension", "Team Sports"],
+      "areasForImprovement": ["Mathematics", "Science"]
+    },
+    "enrolledClassIds": ["class_4", "class_5"],
+    "preferences": {
+      "learningStyle": "kinesthetic",
+      "difficultyLevel": "standard",
+      "interests": ["soccer", "reading", "video_games"]
+    },
+    "createdAt": "2024-01-15T00:00:00Z",
+    "updatedAt": "2024-12-10T00:00:00Z"
+  }
+]

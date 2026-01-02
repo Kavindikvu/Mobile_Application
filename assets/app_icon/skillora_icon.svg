@@ -1,0 +1,11 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="1024" rx="200" fill="url(#grad)"/>
+  <path d="M512 270C430 270 370 330 370 410C370 480 420 520 470 560C500 584 520 600 520 640C520 680 490 710 450 710C415 710 390 695 370 670C355 650 325 650 310 670C295 690 300 715 320 740C355 780 400 810 455 820C555 840 650 780 650 660C650 600 610 560 560 520C520 490 500 470 500 440C500 390 540 360 590 360C620 360 650 370 670 390C690 410 720 410 740 390C760 370 760 340 740 320C705 285 660 270 612 270H512Z" fill="white"/>
+  <defs>
+    <linearGradient id="grad" x1="150" y1="150" x2="874" y2="874" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00C6AE"/>
+      <stop offset="1" stop-color="#1E4DD8"/>
+    </linearGradient>
+  </defs>
+</svg>
+

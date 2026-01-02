@@ -1,0 +1,55 @@
+[
+  {
+    "id": "pm_1",
+    "type": "creditCard",
+    "name": "Visa ending in 1234",
+    "lastFourDigits": "1234",
+    "expiryDate": "12/25",
+    "isDefault": true,
+    "iconUrl": "https://example.com/icons/visa.png",
+    "metadata": {
+      "cardType": "Visa",
+      "holderName": "John Doe"
+    }
+  },
+  {
+    "id": "pm_2",
+    "type": "creditCard",
+    "name": "Mastercard ending in 5678",
+    "lastFourDigits": "5678",
+    "expiryDate": "08/26",
+    "isDefault": false,
+    "iconUrl": "https://example.com/icons/mastercard.png",
+    "metadata": {
+      "cardType": "Mastercard",
+      "holderName": "John Doe"
+    }
+  },
+  {
+    "id": "pm_3",
+    "type": "bankTransfer",
+    "name": "Chase Checking Account",
+    "lastFourDigits": "9876",
+    "expiryDate": null,
+    "isDefault": false,
+    "iconUrl": "https://example.com/icons/chase.png",
+    "metadata": {
+      "bankName": "Chase Bank",
+      "accountType": "Checking",
+      "holderName": "John Doe"
+    }
+  },
+  {
+    "id": "pm_4",
+    "type": "digitalWallet",
+    "name": "PayPal",
+    "lastFourDigits": null,
+    "expiryDate": null,
+    "isDefault": false,
+    "iconUrl": "https://example.com/icons/paypal.png",
+    "metadata": {
+      "walletType": "PayPal",
+      "email": "john.doe@example.com"
+    }
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "studentId": "student_123",
+  "grade": "8th Grade",
+  "school": "Lincoln Middle School",
+  "gpa": 3.8,
+  "subjects": [
+    "Mathematics",
+    "English Language Arts",
+    "Science",
+    "Social Studies",
+    "Physical Education",
+    "Art",
+    "Music"
+  ],
+  "subjectGrades": {
+    "Mathematics": 4.0,
+    "English Language Arts": 3.7,
+    "Science": 3.9,
+    "Social Studies": 3.6,
+    "Physical Education": 3.5,
+    "Art": 4.0,
+    "Music": 3.8
+  },
+  "totalCredits": 28,
+  "completedCredits": 24,
+  "achievements": [
+    "Honor Roll - Fall 2024",
+    "Math Competition Winner",
+    "Art Exhibition Participant",
+    "Perfect Attendance - Q1 2024"
+  ],
+  "additionalInfo": {
+    "attendanceRate": 98.5,
+    "behaviorScore": 4.2,
+    "participationLevel": "high",
+    "teacherComments": [
+      "Emma shows excellent problem-solving skills in mathematics",
+      "Very creative and engaged in art class",
+      "Could improve participation in physical education"
+    ]
+  }
+}

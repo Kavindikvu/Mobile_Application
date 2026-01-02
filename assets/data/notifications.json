@@ -1,0 +1,210 @@
+[
+  {
+    "id": "notif_1",
+    "title": "New Assignment Posted",
+    "body": "Mathematics: Chapter 5 Problem Set due tomorrow",
+    "type": "assignment",
+    "priority": "high",
+    "status": "unread",
+    "createdAt": "2024-12-10T14:30:00Z",
+    "readAt": null,
+    "data": {
+      "assignmentId": "assign_1",
+      "dueDate": "2024-12-11T23:59:00Z",
+      "points": 100
+    },
+    "actionUrl": "/assignments/assign_1",
+    "imageUrl": null,
+    "senderId": "prof_johnson",
+    "senderName": "Prof. Johnson",
+    "relatedEntityId": "assign_1",
+    "relatedEntityType": "assignment"
+  },
+  {
+    "id": "notif_2",
+    "title": "Grade Posted",
+    "body": "Your Science Lab Report received a grade of 95/100",
+    "type": "grade",
+    "priority": "medium",
+    "status": "unread",
+    "createdAt": "2024-12-09T16:45:00Z",
+    "readAt": null,
+    "data": {
+      "grade": 95,
+      "maxGrade": 100,
+      "assignmentId": "lab_report_1"
+    },
+    "actionUrl": "/assignments/lab_report_1",
+    "imageUrl": null,
+    "senderId": "dr_sarah",
+    "senderName": "Dr. Sarah Chen",
+    "relatedEntityId": "lab_report_1",
+    "relatedEntityType": "assignment"
+  },
+  {
+    "id": "notif_3",
+    "title": "Attendance Alert",
+    "body": "You were marked absent for English class today",
+    "type": "attendance",
+    "priority": "medium",
+    "status": "read",
+    "createdAt": "2024-12-09T10:00:00Z",
+    "readAt": "2024-12-09T10:15:00Z",
+    "data": {
+      "classId": "english_101",
+      "date": "2024-12-09",
+      "reason": "unexcused"
+    },
+    "actionUrl": "/attendance",
+    "imageUrl": null,
+    "senderId": "system",
+    "senderName": "System",
+    "relatedEntityId": "english_101",
+    "relatedEntityType": "class"
+  },
+  {
+    "id": "notif_4",
+    "title": "New Message",
+    "body": "Prof. Johnson: Great work on the recent assignment!",
+    "type": "message",
+    "priority": "low",
+    "status": "unread",
+    "createdAt": "2024-12-08T15:20:00Z",
+    "readAt": null,
+    "data": {
+      "conversationId": "conv_1",
+      "messageId": "msg_123"
+    },
+    "actionUrl": "/messages/conv_1",
+    "imageUrl": null,
+    "senderId": "prof_johnson",
+    "senderName": "Prof. Johnson",
+    "relatedEntityId": "conv_1",
+    "relatedEntityType": "conversation"
+  },
+  {
+    "id": "notif_5",
+    "title": "Payment Reminder",
+    "body": "Your monthly tuition payment of $150 is due in 3 days",
+    "type": "payment",
+    "priority": "high",
+    "status": "unread",
+    "createdAt": "2024-12-08T09:00:00Z",
+    "readAt": null,
+    "data": {
+      "amount": 150.00,
+      "currency": "USD",
+      "dueDate": "2024-12-11T23:59:00Z",
+      "paymentId": "pay_123"
+    },
+    "actionUrl": "/payments/pay_123",
+    "imageUrl": null,
+    "senderId": "billing_system",
+    "senderName": "Billing System",
+    "relatedEntityId": "pay_123",
+    "relatedEntityType": "payment"
+  },
+  {
+    "id": "notif_6",
+    "title": "System Maintenance",
+    "body": "The platform will be under maintenance tonight from 2-4 AM",
+    "type": "system",
+    "priority": "medium",
+    "status": "read",
+    "createdAt": "2024-12-07T18:00:00Z",
+    "readAt": "2024-12-07T18:05:00Z",
+    "data": {
+      "maintenanceStart": "2024-12-08T02:00:00Z",
+      "maintenanceEnd": "2024-12-08T04:00:00Z"
+    },
+    "actionUrl": null,
+    "imageUrl": null,
+    "senderId": "system",
+    "senderName": "System",
+    "relatedEntityId": null,
+    "relatedEntityType": null
+  },
+  {
+    "id": "notif_7",
+    "title": "Assignment Reminder",
+    "body": "Don't forget: Creative Writing essay due tomorrow at 11:59 PM",
+    "type": "reminder",
+    "priority": "high",
+    "status": "unread",
+    "createdAt": "2024-12-07T14:00:00Z",
+    "readAt": null,
+    "data": {
+      "assignmentId": "essay_1",
+      "dueDate": "2024-12-08T23:59:00Z",
+      "reminderType": "due_soon"
+    },
+    "actionUrl": "/assignments/essay_1",
+    "imageUrl": null,
+    "senderId": "system",
+    "senderName": "System",
+    "relatedEntityId": "essay_1",
+    "relatedEntityType": "assignment"
+  },
+  {
+    "id": "notif_8",
+    "title": "Achievement Unlocked!",
+    "body": "Congratulations! You've earned the 'Perfect Attendance' badge",
+    "type": "achievement",
+    "priority": "low",
+    "status": "read",
+    "createdAt": "2024-12-06T16:30:00Z",
+    "readAt": "2024-12-06T16:35:00Z",
+    "data": {
+      "achievementId": "perfect_attendance",
+      "badgeName": "Perfect Attendance",
+      "description": "Attended all classes for 30 consecutive days"
+    },
+    "actionUrl": "/achievements",
+    "imageUrl": "https://example.com/badges/perfect_attendance.png",
+    "senderId": "system",
+    "senderName": "System",
+    "relatedEntityId": "perfect_attendance",
+    "relatedEntityType": "achievement"
+  },
+  {
+    "id": "notif_9",
+    "title": "Grade Posted",
+    "body": "Your Mathematics quiz received a grade of 88/100",
+    "type": "grade",
+    "priority": "medium",
+    "status": "read",
+    "createdAt": "2024-12-05T11:15:00Z",
+    "readAt": "2024-12-05T11:20:00Z",
+    "data": {
+      "grade": 88,
+      "maxGrade": 100,
+      "assignmentId": "quiz_math_1"
+    },
+    "actionUrl": "/assignments/quiz_math_1",
+    "imageUrl": null,
+    "senderId": "prof_johnson",
+    "senderName": "Prof. Johnson",
+    "relatedEntityId": "quiz_math_1",
+    "relatedEntityType": "assignment"
+  },
+  {
+    "id": "notif_10",
+    "title": "New Message",
+    "body": "Study Group: Meeting tomorrow at 2 PM in the library",
+    "type": "message",
+    "priority": "low",
+    "status": "unread",
+    "createdAt": "2024-12-04T19:45:00Z",
+    "readAt": null,
+    "data": {
+      "conversationId": "conv_4",
+      "messageId": "msg_456"
+    },
+    "actionUrl": "/messages/conv_4",
+    "imageUrl": null,
+    "senderId": "alex",
+    "senderName": "Alex",
+    "relatedEntityId": "conv_4",
+    "relatedEntityType": "conversation"
+  }
+]

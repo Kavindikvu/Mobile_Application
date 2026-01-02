@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "762991376313",
+    "project_id": "skillora-echo-system",
+    "storage_bucket": "skillora-echo-system.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762991376313:android:7b4712ea6cd0424921a868",
+        "android_client_info": {
+          "package_name": "com.roollout.skillora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762991376313-44off6o80mrn6mufcvcpmggm19mrm49j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.roollout.skillora",
+            "certificate_hash": "f1c72b66efa323506bb04c9f103560aaae11d41b"
+          }
+        },
+        {
+          "client_id": "762991376313-lfmnts4qftbob5llldaec8habi51jvp3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.roollout.skillora",
+            "certificate_hash": "6325e7514e3d8f872c07ee75233f618e84e974c6"
+          }
+        },
+        {
+          "client_id": "762991376313-solpse5f6l618bonifn574h88lkent08.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.roollout.skillora",
+            "certificate_hash": "ed6f11d730fd5af1d786a663c8dd40d42d7fbb48"
+          }
+        },
+        {
+          "client_id": "762991376313-9fto73o62aoeob2n9deraldd9j9b64j3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHpT2uL5L4qwvOPv7OsqqLRLDfk3Vqq7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762991376313-9fto73o62aoeob2n9deraldd9j9b64j3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

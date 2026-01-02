@@ -1,0 +1,21 @@
+{
+  "userId": "user_123",
+  "typeSettings": {
+    "assignment": true,
+    "grade": true,
+    "attendance": true,
+    "message": true,
+    "payment": true,
+    "system": true,
+    "reminder": true,
+    "achievement": true
+  },
+  "pushEnabled": true,
+  "emailEnabled": true,
+  "smsEnabled": false,
+  "quietHoursEnabled": true,
+  "quietHoursStart": "22:00:00",
+  "quietHoursEnd": "07:00:00",
+  "mutedSenders": [],
+  "updatedAt": "2024-12-10T00:00:00Z"
+}

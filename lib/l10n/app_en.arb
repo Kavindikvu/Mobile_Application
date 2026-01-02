@@ -1,0 +1,19 @@
+{
+  "appTitle": "Skillora Family",
+  "tabDiscover": "Discover",
+  "tabAssignments": "Assignments",
+  "tabHome": "Home",
+  "tabMessages": "Messages",
+  "tabProfile": "Profile",
+  "emptyState": "Nothing here yet",
+  "loading": "Loading...",
+  "error": "Something went wrong",
+  "discoverTitle": "Find Classes",
+  "assignmentsTitle": "Your Assignments",
+  "homeTitle": "Overview",
+  "messagesTitle": "Inbox",
+  "profileTitle": "Profile",
+  "roleParent": "Parent",
+  "roleStudent": "Student",
+  "switchChild": "Switch Child"
+}

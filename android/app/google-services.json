@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "848298920340",
+    "project_id": "skillora-family-app",
+    "storage_bucket": "skillora-family-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848298920340:android:8c9734f308c642a354a781",
+        "android_client_info": {
+          "package_name": "com.roollout.skillora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848298920340-75abhr65i8gine3j6c7o12vk1achsv9g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.roollout.skillora",
+            "certificate_hash": "bbc1da7d7c6a7bedda3d50ecf19f40d1a6ae2d5f"
+          }
+        },
+        {
+          "client_id": "848298920340-dc5g64p5kg4tlqavqtmvis2hi6n972f3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.roollout.skillora",
+            "certificate_hash": "cf543666fdca5a6104988946e766e5f07e1c0179"
+          }
+        },
+        {
+          "client_id": "848298920340-kqueausp55ksmmo22j70v4v9um2mvoqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3qaOmF2r8AsOZso3DPqs4EsMFuYCVSOc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848298920340-kqueausp55ksmmo22j70v4v9um2mvoqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

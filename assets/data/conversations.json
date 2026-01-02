@@ -1,0 +1,111 @@
+[
+  {
+    "id": "conv1",
+    "title": "Prof. Johnson - Math Class",
+    "lastMessage": "New assignment posted for Chapter 5",
+    "lastMessageTime": "2024-12-10T14:30:00Z",
+    "lastMessageSender": "Prof. Johnson",
+    "unreadCount": 2,
+    "participantIds": ["current_user", "prof_johnson"],
+    "participantNames": {
+      "current_user": "You",
+      "prof_johnson": "Prof. Johnson"
+    },
+    "participantAvatars": {
+      "prof_johnson": "https://example.com/avatar1.jpg"
+    },
+    "conversationAvatar": null,
+    "isGroup": false,
+    "isArchived": false,
+    "createdAt": "2024-09-01T00:00:00Z",
+    "updatedAt": "2024-12-10T14:30:00Z"
+  },
+  {
+    "id": "conv2",
+    "title": "Dr. Sarah Chen - Science Lab",
+    "lastMessage": "Lab report feedback: Great work on the hypothesis section!",
+    "lastMessageTime": "2024-12-09T16:45:00Z",
+    "lastMessageSender": "Dr. Sarah Chen",
+    "unreadCount": 0,
+    "participantIds": ["current_user", "dr_sarah"],
+    "participantNames": {
+      "current_user": "You",
+      "dr_sarah": "Dr. Sarah Chen"
+    },
+    "participantAvatars": {
+      "dr_sarah": "https://example.com/avatar2.jpg"
+    },
+    "conversationAvatar": null,
+    "isGroup": false,
+    "isArchived": false,
+    "createdAt": "2024-09-01T00:00:00Z",
+    "updatedAt": "2024-12-09T16:45:00Z"
+  },
+  {
+    "id": "conv3",
+    "title": "School Administration",
+    "lastMessage": "Payment reminder: Your monthly fee is due soon",
+    "lastMessageTime": "2024-12-08T10:00:00Z",
+    "lastMessageSender": "Admin",
+    "unreadCount": 1,
+    "participantIds": ["current_user", "admin"],
+    "participantNames": {
+      "current_user": "You",
+      "admin": "School Administration"
+    },
+    "participantAvatars": {
+      "admin": "https://example.com/avatar3.jpg"
+    },
+    "conversationAvatar": null,
+    "isGroup": false,
+    "isArchived": false,
+    "createdAt": "2024-09-01T00:00:00Z",
+    "updatedAt": "2024-12-08T10:00:00Z"
+  },
+  {
+    "id": "conv4",
+    "title": "Study Group - Advanced Math",
+    "lastMessage": "Anyone want to meet tomorrow to review for the exam?",
+    "lastMessageTime": "2024-12-07T19:20:00Z",
+    "lastMessageSender": "Alex",
+    "unreadCount": 5,
+    "participantIds": ["current_user", "alex", "maria", "john"],
+    "participantNames": {
+      "current_user": "You",
+      "alex": "Alex",
+      "maria": "Maria",
+      "john": "John"
+    },
+    "participantAvatars": {
+      "alex": "https://example.com/avatar4.jpg",
+      "maria": "https://example.com/avatar5.jpg",
+      "john": "https://example.com/avatar6.jpg"
+    },
+    "conversationAvatar": null,
+    "isGroup": true,
+    "isArchived": false,
+    "createdAt": "2024-10-15T00:00:00Z",
+    "updatedAt": "2024-12-07T19:20:00Z"
+  },
+  {
+    "id": "conv5",
+    "title": "Ms. Emily Rodriguez - Creative Writing",
+    "lastMessage": "Your short story shows excellent character development!",
+    "lastMessageTime": "2024-12-05T11:15:00Z",
+    "lastMessageSender": "Ms. Emily Rodriguez",
+    "unreadCount": 0,
+    "participantIds": ["current_user", "ms_emily"],
+    "participantNames": {
+      "current_user": "You",
+      "ms_emily": "Ms. Emily Rodriguez"
+    },
+    "participantAvatars": {
+      "ms_emily": "https://example.com/avatar7.jpg"
+    },
+    "conversationAvatar": null,
+    "isGroup": false,
+    "isArchived": false,
+    "createdAt": "2024-09-01T00:00:00Z",
+    "updatedAt": "2024-12-05T11:15:00Z"
+  }
+]
